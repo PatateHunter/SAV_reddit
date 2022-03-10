@@ -12,7 +12,6 @@ app.use(cors());
 app.use(bodyParser.json());
 
 buildRoutes(app);
-
 const port = process.env.PORT || 3000;
 
 app.listen(port, function () {
