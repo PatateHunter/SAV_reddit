@@ -9,3 +9,4 @@ class Person {
   
   const Person(this.id, this.name, this.email, this.password, this.role, this.photoUrl);
 }
+

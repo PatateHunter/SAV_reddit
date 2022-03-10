@@ -1,39 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:hackathon/components/details_post/comment_list.dart';
-import 'package:hackathon/components/post_content/content_type_enum.dart';
-import 'package:hackathon/components/post_content/image_viewer.dart';
-import 'package:hackathon/components/post_content/text_viewer.dart';
-import 'package:hackathon/components/post_content/video_viewer.dart';
-import 'package:hackathon/components/votes_counter.dart';
+import '../../components/post_content/content_type_enum.dart';
+import '../../components/post_content/image_viewer.dart';
+import '../../components/post_content/text_viewer.dart';
+import '../../components/post_content/video_viewer.dart';
 
-import '../person.dart';
+import '../post.dart';
+import 'comment_list.dart';
 
-class Post extends StatefulWidget {
-  final Person person;
-  final ContentType contentType;
-  final String mediaPath;
-  final String date;
-  final String text;
-  final String description;
+class Question extends StatelessWidget {
+  final Post post;
+  const Question(this.post);
 
-  const Post(this.person, this.contentType, this.mediaPath, this.date, this.text, this.description);
-
-  @override
-  _PostState createState() => _PostState(this.person, this.contentType, this.mediaPath, this.date, this.text, this.description);
-}
-
-class _PostState extends State<Post> {
-  final Person person;
-  final ContentType contentType;
-  final String mediaPath;
-  final String date;
-  final String text;
-  final String description;
-
-  _PostState(this.person, this.contentType, this.mediaPath, this.date, this.text, this.description);
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+     return Container(
+      margin: EdgeInsets.only(top: 10),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          boxShadow: [
+            BoxShadow(
+              color: Color(0xFF656565).withOpacity(0.15),
+              blurRadius: 4.0,
+              spreadRadius: 1.0,
+            )
+          ]),
+      child: InkWell(
               child: Container(
                 margin: EdgeInsets.only(top:20),
                 decoration: BoxDecoration(
@@ -78,7 +70,7 @@ class _PostState extends State<Post> {
                                   padding: EdgeInsets.all(10),
                                   child: CircleAvatar(
                                     backgroundImage:
-                                        NetworkImage(this.person.photoUrl),
+                                        NetworkImage(this.post.person.photoUrl),
                                         radius:30
                                         
                                   ),
@@ -131,7 +123,7 @@ class _PostState extends State<Post> {
                                     Row(
                                       children: <Widget>[
                                         Text(
-                                          person.name,
+                                          this.post.person.name,
                                           /* snapshot.data()['school'] ?? 'unknown school', */
                                           style: TextStyle(
                                               color: Colors.black,
@@ -142,7 +134,7 @@ class _PostState extends State<Post> {
                                     Row(
                                       children: <Widget>[
                                         Text(
-                                          this.description,
+                                          this.post.description,
                                           //snapshot.data()['study'] ?? 'unknown study',
                                           style:
                                               TextStyle(color: Colors.black54),
@@ -173,24 +165,24 @@ class _PostState extends State<Post> {
                             padding:
                                 const EdgeInsets.only(left: 12.0, right: 16),
                             child: TextViewer(
-                                this.text)),
+                                this.post.text)),
                         SizedBox(height: 8.0),
                         Padding(
                           padding: const EdgeInsets.only(left: 12.0),
                           child: Text(
-                            this.date,
+                            this.post.date,
                             //getChatTime(getModel.createdAt),
                             style: TextStyle(color: Colors.black45),
                           ),
                         ),
                         // Single or collection of images/videos
                         SizedBox(height: 8.0),
-                        this.contentType == ContentType.TEXT ? Text("")
+                        this.post.contentType == ContentType.TEXT ? Text("")
                          : Container(
                           child: AnimatedContainer(
                             duration: Duration(milliseconds: 500),
                             alignment: Alignment.centerRight,
-                            child: this.contentType ==  ContentType.VIDEO ? VideoViewer(mediaPath) : ImageViewer(mediaPath),
+                            child: this.post.contentType ==  ContentType.VIDEO ? VideoViewer(this.post.mediaPath) : ImageViewer(this.post.mediaPath),
                             /* getModel.imagePath == null
                                       ? SizedBox.shrink()
                                       : selectingGrid(imagePath: getModel.imagePath), */
@@ -216,35 +208,6 @@ class _PostState extends State<Post> {
                         ),
                         SizedBox(height: 10.0),
                         // People liked information with icon
-                        //NormalHomeFeedButton(model: getModel),
-                        SizedBox(height: 4.0),
-                        // View all comments
-                         InkWell(
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 12.0, top: 10),
-                              child: Row(children: [
-                                Text(
-                                  'View all',
-                                  style: TextStyle(color: Colors.black45),
-                                ),
-                                Text(
-                                  ' reponses',
-                                  style: TextStyle(color: Colors.black45),
-                                ),
-                              ]),
-                            ),
-                            onTap: () {
-                               Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => CommentList(this.widget),
-                                        /* settings:
-                                            RouteSettings(arguments: getModel.key), */
-                                      ),
-                                    ); 
-                            }),
-                        SizedBox(height: 4.0),
                         // Add comment section
                         Row(
                           children: <Widget>[
@@ -319,10 +282,8 @@ class _PostState extends State<Post> {
                   ],
                 ),
               ),
-            );
+            )
 
+    );
   }
 }
-
-
-
