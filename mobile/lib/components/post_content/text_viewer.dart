@@ -14,16 +14,17 @@ class TextViewer extends StatelessWidget {
         padding: const EdgeInsets.only(
             top: 5.0, bottom: 5.0, left: 5.0, right: 5.0),
         child: RichText(
-                              maxLines: 2,
+                              maxLines: 5,
                               overflow: TextOverflow.ellipsis,
                               text: TextSpan(
                                 text:this.text,
-                                style: TextStyle(color: Colors.black),
+                                style: TextStyle(color: Colors.black, fontSize: 18),
                                 /* children: _processCaption(
                                   getModel.description,
                                   '#',
                                   TextStyle(color: Colors.blue),
                                 ), */
+                                
                               ),
                             ),
       ),

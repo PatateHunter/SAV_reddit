@@ -1,15 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:hackathon/components/comments/comment_list.dart';
+import 'package:hackathon/components/post_content/content_type_enum.dart';
 import 'package:hackathon/components/post_content/image_viewer.dart';
 import 'package:hackathon/components/post_content/text_viewer.dart';
+import 'package:hackathon/components/post_content/video_viewer.dart';
+import 'package:hackathon/components/votes_counter.dart';
+
+import '../person.dart';
 
 class Post extends StatefulWidget {
-  const Post({ Key? key }) : super(key: key);
+  final Person person;
+  final ContentType contentType;
+  final String mediaPath;
+  final String date;
+  final String text;
+  final String description;
+
+  const Post(this.person, this.contentType, this.mediaPath, this.date, this.text, this.description);
 
   @override
-  _PostState createState() => _PostState();
+  _PostState createState() => _PostState(this.person, this.contentType, this.mediaPath, this.date, this.text, this.description);
 }
 
 class _PostState extends State<Post> {
+  final Person person;
+  final ContentType contentType;
+  final String mediaPath;
+  final String date;
+  final String text;
+  final String description;
+  int _votes = 0;
+
+  _PostState(this.person, this.contentType, this.mediaPath, this.date, this.text, this.description);
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -53,9 +75,14 @@ class _PostState extends State<Post> {
                                             );
                                           })); */
                                 },
-                                child: CircleAvatar(
-                                  backgroundImage:
-                                      AssetImage('assets/images/cat3.png'),
+                                child: Padding(
+                                  padding: EdgeInsets.all(10),
+                                  child: CircleAvatar(
+                                    backgroundImage:
+                                        NetworkImage(this.person.photoUrl),
+                                        radius:30
+                                        
+                                  ),
                                 ) /* CircleImage(
                                       snapshot.data()['profilePic'] ?? 'unknown picture',
                                       imageSize: 36.0,
@@ -89,9 +116,8 @@ class _PostState extends State<Post> {
                                   children: <Widget>[
                                     Row(
                                       children: <Widget>[
-                                        Text("text"
                                             //snapshot.data()['displayName'] ?? 'unknown display name',
-                                            ),
+                                            
                                       ],
                                     ),
                                     // Row(
@@ -106,7 +132,7 @@ class _PostState extends State<Post> {
                                     Row(
                                       children: <Widget>[
                                         Text(
-                                          "Nom poster",
+                                          person.name,
                                           /* snapshot.data()['school'] ?? 'unknown school', */
                                           style: TextStyle(
                                               color: Colors.black,
@@ -117,7 +143,7 @@ class _PostState extends State<Post> {
                                     Row(
                                       children: <Widget>[
                                         Text(
-                                          "Lycée internationnal Nantes Mathematics",
+                                          this.description,
                                           //snapshot.data()['study'] ?? 'unknown study',
                                           style:
                                               TextStyle(color: Colors.black54),
@@ -148,25 +174,24 @@ class _PostState extends State<Post> {
                             padding:
                                 const EdgeInsets.only(left: 12.0, right: 16),
                             child: TextViewer(
-                                "Hello! For my AP subject what is the fastest growing economy?")),
+                                this.text)),
                         SizedBox(height: 8.0),
                         Padding(
                           padding: const EdgeInsets.only(left: 12.0),
                           child: Text(
-                            "09 Jun",
+                            this.date,
                             //getChatTime(getModel.createdAt),
                             style: TextStyle(color: Colors.black45),
                           ),
                         ),
                         // Single or collection of images/videos
                         SizedBox(height: 8.0),
-                        Container(
+                        this.contentType == ContentType.TEXT ? Text("")
+                         : Container(
                           child: AnimatedContainer(
                             duration: Duration(milliseconds: 500),
                             alignment: Alignment.centerRight,
-                            child: ImageViewer(
-                              "https://static.fnac-static.com/multimedia/Images/FD/Comete/114332/CCP_IMG_ORIGINAL/1481839.jpg",
-                            ),
+                            child: this.contentType ==  ContentType.VIDEO ? VideoViewer(mediaPath) : ImageViewer(mediaPath),
                             /* getModel.imagePath == null
                                       ? SizedBox.shrink()
                                       : selectingGrid(imagePath: getModel.imagePath), */
@@ -181,57 +206,10 @@ class _PostState extends State<Post> {
                             Row(
                               children: <Widget>[
                                 SizedBox(width: 12.0), // For padding
-                                InkWell(
-                                  onTap: () {
-                                    /* getState.addLikeToTweet(
-                                              getModel, authStateFalse?.userId); */
-                                  },
-                                  child:
-                                      /* Icon(
-                                          likeList
-                                              ? CustomIcons.like_fill
-                                              : CustomIcons.like_lineal,
-                                          color: likeList ? Colors.red : Colors.black,
-                                        ), */ //Text("icon like"),
-                                      Column(
-                                    children: [
-                                      Icon(
-                                        Icons.arrow_drop_up_outlined,
-                                        size: 30,
-                                      ),
-                                      Text(
-                                        "0",
-                                        style: TextStyle(fontSize: 15),
-                                      ),
-                                      Icon(
-                                        Icons.arrow_drop_down_outlined,
-                                        size: 30,
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                                VotesCounter(_votes),
                                 SizedBox(width: 12.0), // For padding
-
-                                InkWell(
-                                    child:
-                                        /* Icon(
-                                            //CustomIcons.comment,
-                                          ), */
-                                        Text("Icon"),
-                                    onTap: () {
-                                      /* Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) => Comment(),
-                                                settings: RouteSettings(
-                                                    arguments: getModel.key),
-                                              ),
-                                            ); */
-                                    }),
-
                                 SizedBox(width: 12.0), // For padding
                                 Expanded(child: SizedBox()),
-                                Text("icon"),
                                 //Icon(CustomIcons.bookmark_lineal),
                                 SizedBox(width: 10.0), // For padding
                               ],
@@ -241,8 +219,6 @@ class _PostState extends State<Post> {
                         SizedBox(height: 10.0),
                         // People liked information with icon
                         //NormalHomeFeedButton(model: getModel),
-                        Text("Liked and shared by"),
-
                         SizedBox(height: 4.0),
                         // View all comments
                         InkWell(
@@ -261,14 +237,14 @@ class _PostState extends State<Post> {
                               ]),
                             ),
                             onTap: () {
-                              /* Navigator.push(
+                               Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => Comment(),
-                                        settings:
-                                            RouteSettings(arguments: getModel.key),
+                                        builder: (context) => CommentList(),
+                                        /* settings:
+                                            RouteSettings(arguments: getModel.key), */
                                       ),
-                                    ); */
+                                    ); 
                             }),
                         SizedBox(height: 4.0),
                         // Add comment section
@@ -280,7 +256,13 @@ class _PostState extends State<Post> {
                                     whiteMargin: 2.0,
                                     imageMargin: 6.0,
                                   ), */
-                            Icon(Icons.add_circle),
+                            Padding(
+                              padding: EdgeInsets.all(10),
+                              child: CircleAvatar(
+                                    backgroundImage:
+                                        NetworkImage("https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png"),
+                                  ),
+                            ) ,
                             //Text("Circle image"),
                             Expanded(
                               child: TextField(
