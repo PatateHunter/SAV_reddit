@@ -10,41 +10,39 @@ class VotesCounter extends StatefulWidget {
 
 class _VotesCounterState extends State<VotesCounter> {
   int _counter;
+  int _initialCounter = 0;
 
   _VotesCounterState(this._counter);
 
   @override
   Widget build(BuildContext context) {
+    
     return InkWell(
       onTap: () {
         /* getState.addLikeToTweet(
          getModel, authStateFalse?.userId); */
       },
       child:
-          /* Icon(
-            likeList
-                ? CustomIcons.like_fill
-                : CustomIcons.like_lineal,
-            color: likeList ? Colors.red : Colors.black,
-          ), */ //Text("icon like"),
           Column(
         children: [
           GestureDetector(
-            onTap: _incrementCounter,
+            onTap: _initialCounter < _counter ? _resetCounter : _incrementCounter,
             child: Icon(
               Icons.arrow_drop_up_outlined,
               size: 35,
+              color: _initialCounter < _counter ? Colors.green : Colors.black,
             ),
           ),
           Text(
             this._counter.toString(),
-            style: TextStyle(fontSize: 18, color: _counter > 0 ? Colors.green : Colors.black),
+            style: TextStyle(fontSize: 18, color: _getCounterColor()),
           ),
           GestureDetector(
-            onTap: _decrementCounter,
+            onTap:  _initialCounter > _counter ? _resetCounter : _decrementCounter,
             child: Icon(
               Icons.arrow_drop_down_outlined,
               size: 35,
+              color: _initialCounter > _counter ? Colors.red : Colors.black,
             ),
           ),
         ],
@@ -52,15 +50,37 @@ class _VotesCounterState extends State<VotesCounter> {
     );
   }
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _initialCounter = _counter;
+  }
+
+  Color _getCounterColor() {
+    if(_counter > 0) return Colors.green;
+    if(_counter < 0) return Colors.red;
+    return Colors.black;
+  }
+
   void _incrementCounter() {
     setState(() {
-      _counter++;
+      _initialCounter >= _counter ? _counter++ : _counter = _counter;
+
     });
   }
 
   void _decrementCounter() {
+
     setState(() {
-      _counter--;
+      _initialCounter <= _counter ? _counter-- : _counter = _counter;
     });
   }
+
+  void _resetCounter() {
+    setState(() {
+      _counter = _initialCounter;
+    });
+  }
+
 }

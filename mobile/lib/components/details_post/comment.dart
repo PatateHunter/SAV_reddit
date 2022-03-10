@@ -27,13 +27,13 @@ class Comment extends StatelessWidget {
             )
           ]),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(left:8, top:8, right:8, bottom:8),
         child: Row(
           children: [
             VotesCounter(_votes),
             Container(child: Expanded(child: Column(
               children: [
-                Align(child: Text(this.text, style: TextStyle(fontSize: 17),), alignment: Alignment.centerLeft,),
+                Align(child: Text(this.text, style: TextStyle(fontSize: 17),), alignment: Alignment.topLeft,),
                 Align(child: Text(commiter.name,  style: TextStyle(color: Colors.black45)), alignment: Alignment.bottomRight,),
             //Text(commiter.name, textAlign: TextAlign.right, style: TextStyle(color: Colors.black45)),
               Align(child: Text(date,  style: TextStyle(color: Colors.black45)), alignment: Alignment.bottomRight,)

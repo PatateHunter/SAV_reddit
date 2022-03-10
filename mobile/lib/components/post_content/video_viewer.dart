@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackathon/components/post_content/video_player_screen.dart';
+import '/components/post_content/video_player_screen.dart';
 
 class VideoViewer extends StatelessWidget {
   final videoPath;
