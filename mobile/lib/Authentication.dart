@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackathon/Search.dart';
 import 'components/post_list.dart';
 
 import 'common/utils.dart';
@@ -83,7 +84,7 @@ class _AuthenticationState extends State<Authentication> {
             Utils.displayAlertDialog(context, "Success", "Authentication");
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const PostList()),
+              MaterialPageRoute(builder: (context) => const Search()),
             );
             return Text(snapshot.data!.name);
           default:
@@ -101,7 +102,7 @@ class _AuthenticationState extends State<Authentication> {
         //     _loginController.text.trim(), _passwordController.text.trim());
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const PostList()),
+          MaterialPageRoute(builder: (context) => const Search()),
         );
       }catch(err){
         print("Error: $err");
