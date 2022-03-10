@@ -30,6 +30,7 @@ public class CommentMapper {
     public CommentResponse findCommentById(Long commentId) {
         return convertToResponseDto(commentService.findCommentyById(commentId));
     }
+
     public Comment registerComment(CommentRequest commentRequest) {
         return commentService.registerComment(convertToEntity(commentRequest));
     }
@@ -43,6 +44,10 @@ public class CommentMapper {
 
     public CommentResponse updateComment(CommentRequest commentRequest) {
         return convertToResponseDto(commentService.updateComment(convertToEntity(commentRequest)));
+    }
+
+    public CommentResponse updateVote(Long commentId, String email, int vote) {
+        return convertToResponseDto(commentService.updateVote(commentId, email, vote));
     }
 
 }

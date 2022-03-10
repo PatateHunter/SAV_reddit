@@ -11,5 +11,6 @@ public interface CommentService {
     Comment updateComment(Comment comment);
     Comment registerComment(Comment comment);
    // void uploadCommentFile(String userProfileId, UploadUserFileDto uploadUserFileDto);
-   DownloadCommentFileDto downloadUserFiles(Long commentId);
+    DownloadCommentFileDto downloadUserFiles(Long commentId);
+    Comment updateVote(Long commentId, String email, int vote);
 }

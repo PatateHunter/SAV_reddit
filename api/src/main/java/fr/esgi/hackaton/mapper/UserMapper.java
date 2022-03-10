@@ -52,4 +52,7 @@ public class UserMapper {
         return convertToResponseDto(userService.updateProfile(email, convertToEntity(userRequest)));
     }
 
+    public UserResponse updateRewards(String email, int vote){
+        return convertToResponseDto(userService.updateRewards(email, vote));
+    }
 }

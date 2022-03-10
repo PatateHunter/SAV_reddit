@@ -20,4 +20,5 @@ public class UserResponse {
     private String activationCode;
     private String passwordResetCode;
     private Set<Role> roles;
+    private int rewards;
 }

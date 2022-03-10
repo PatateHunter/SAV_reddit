@@ -34,5 +34,4 @@ private final CommentMapper commentMapper;
     public ResponseEntity<CommentResponse> getById(@RequestParam Long commentId){
         return  ResponseEntity.ok(commentMapper.findCommentById(commentId));
     }
-
 }

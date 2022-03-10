@@ -23,6 +23,7 @@ public final class CommentServiceImpl implements CommentService {
             IMAGE_JPEG.getMimeType());
     private final FileStore fileStore;
     private final CommentRepository commentRepository;
+    private final UserServiceImpl userService;
 
     @Override
     public List<Comment> findAllComments() {
@@ -78,4 +79,11 @@ public final class CommentServiceImpl implements CommentService {
         return commentFileDto;
     }
 
+    @Override
+    public Comment updateVote(Long commentId, String email, int vote){
+        Comment comment = findCommentyById(commentId);
+        comment.setRanking(commentRepository.getById(commentId).getRanking()+vote);
+        userService.updateRewards(email, vote);
+        return commentRepository.save(comment);
+    }
 }

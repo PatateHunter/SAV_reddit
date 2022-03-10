@@ -19,4 +19,6 @@ public interface UserService {
 
     User updateProfile(String email, User user);
 
+    User updateRewards(String email, int vote);
+
 }

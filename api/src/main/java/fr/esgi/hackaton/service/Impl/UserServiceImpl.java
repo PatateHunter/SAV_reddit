@@ -1,6 +1,7 @@
 package fr.esgi.hackaton.service.Impl;
 
 
+import com.amazonaws.services.dynamodbv2.xspec.S;
 import fr.esgi.hackaton.domain.User;
 import fr.esgi.hackaton.repository.UserRepository;
 import fr.esgi.hackaton.service.UserService;
@@ -54,6 +55,13 @@ public class UserServiceImpl implements UserService {
         userFromDb.setPhoneNumber(user.getPhoneNumber());
         userFromDb.setPostIndex(user.getPostIndex());
         userRepository.save(userFromDb);
+        return userFromDb;
+    }
+
+    @Override
+    public User updateRewards(String email, int vote){
+        User userFromDb = userRepository.findByEmail(email);
+        userFromDb.setRewards(userFromDb.getRewards()+vote);
         return userFromDb;
     }
 }

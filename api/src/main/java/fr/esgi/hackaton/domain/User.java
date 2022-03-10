@@ -25,6 +25,7 @@ public class User {
     private String activationCode;
     private String passwordResetCode;
     private boolean active;
+    private int rewards;
 
     @Enumerated(EnumType.STRING)
     private AuthProvider provider;
