@@ -20,6 +20,9 @@ class _PostListState extends State<PostList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('SAV REDDIT'),
+      ),
       backgroundColor: Colors.grey.shade100,
       body: Padding(
         padding: const EdgeInsets.only(
