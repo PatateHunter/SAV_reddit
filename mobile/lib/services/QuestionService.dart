@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import '../models/Question.dart';
 
 
-class HttpService {
+class QuestionService {
   final _baseUrl = "http://0.0.0.0:3000/";
 
   Future<List<Question>> getQuestions() async{
