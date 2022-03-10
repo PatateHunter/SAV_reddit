@@ -33,16 +33,23 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final HttpService _httpService = HttpService();
   List<Question> questions = [];
+  String valueSearchBar = "";
+  setValueSearchBar(String value) {
+    setState(() {
+      valueSearchBar = value;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    print(valueSearchBar);
     print(questions);
     /* return FutureBuilder(
       future: authStateFalse.getUserdata(userId: getModel?.userId),
       builder: (context, snapshot) {
         if (snapshot.hasData) { */
     return Scaffold(
-      appBar: AppSearchBar(),
+      appBar: AppSearchBar(setValueSearchBar: setValueSearchBar,),
       body: Padding(
         padding:
             const EdgeInsets.only(left: 5.0, right: 5.0, top: 5.0, bottom: 5.0),
