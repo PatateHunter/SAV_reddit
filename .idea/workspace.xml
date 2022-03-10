@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="66558617-c592-4122-92d8-6e3ad206881e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/SAV_reddit.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/controller/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/database/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/models/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/router/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/router/process.router.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/services/answer-service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/services/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    <list default="true" id="66558617-c592-4122-92d8-6e3ad206881e" name="Changes" comment="delete ts">
+      <change afterPath="$PROJECT_DIR$/api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,14 +38,20 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\haithem.limam\Documents\Etude\SAV_reddit" />
+      <recent name="C:\Users\haithem.limam\Documents\Etude\SAV_reddit\api" />
       <recent name="C:\Users\chtitski\Documents\GitHubYo\SAV_reddit\api" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -72,7 +68,16 @@
       <updated>1646859413124</updated>
       <workItem from="1646859418048" duration="842000" />
       <workItem from="1646897603054" duration="184000" />
+      <workItem from="1646939391260" duration="677000" />
     </task>
+    <task id="LOCAL-00001" summary="delete ts">
+      <created>1646939510334</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1646939510334</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,5 +94,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="delete ts" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete ts" />
   </component>
 </project>
