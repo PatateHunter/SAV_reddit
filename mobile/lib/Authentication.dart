@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'components/post_list.dart';
 
 import 'common/utils.dart';
 import 'components/textformfield.dart';
@@ -80,10 +81,10 @@ class _AuthenticationState extends State<Authentication> {
               return buildFormLogin();
             }
             Utils.displayAlertDialog(context, "Success", "Authentication");
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => const Posts()),
-            // );
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const PostList()),
+            );
             return Text(snapshot.data!.name);
           default:
             return Text("Authentication");
@@ -98,10 +99,10 @@ class _AuthenticationState extends State<Authentication> {
       try{
         // Person user = await _authenticationService.login(
         //     _loginController.text.trim(), _passwordController.text.trim());
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(builder: (context) => const Posts()),
-        // );
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const PostList()),
+        );
       }catch(err){
         print("Error: $err");
         Utils.displayAlertDialog(context, "Error during the Authentication", err.toString());
