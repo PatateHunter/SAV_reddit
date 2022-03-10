@@ -53,9 +53,10 @@ class _MyHomePageState extends State<MyHomePage> {
       builder: (context, snapshot) {
         if (snapshot.hasData) { */
     return Scaffold(
-      appBar: AppSearchBar(setValueSearchBar: setValueSearchBar,),
-      body: Authentication()
-    );
+        appBar: AppBar(
+          title: Center(child: const Text('SAV REDDIT')),
+        ),
+        body: Authentication());
     /* } else if ((snapshot.connectionState == ConnectionState.waiting ||
             snapshot.connectionState == ConnectionState.active)) {
           return SizedBox(

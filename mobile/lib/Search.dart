@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hackathon/components/post_list.dart';
 
+import 'Profile.dart';
+
 class Search extends StatefulWidget {
   const Search({Key? key}) : super(key: key);
 
@@ -13,6 +15,17 @@ class _SearchState extends State<Search> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: GestureDetector(
+          onTap: (() => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Profile()),
+              )),
+          child: Icon(
+            Icons.search,
+            color: Colors.white,
+            size: 28,
+          ),
+        ),
         title: const Text('SAV REDDIT'),
       ),
       body: Center(
@@ -31,7 +44,7 @@ class _SearchState extends State<Search> {
                       context,
                       MaterialPageRoute(builder: (context) => const PostList()),
                     );
-                  }),          
+                  }),
                   child: Icon(
                     Icons.search,
                     color: Colors.blue,
@@ -67,12 +80,6 @@ class _SearchState extends State<Search> {
                 onPressed: (() => print("clicked")),
                 child: Text("Poser une question?"),
               ),
-              
-              // SizedBox(height: 10), // to add separation between two widgets
-              // ElevatedButton(
-              //   onPressed: onClickSubmitButton,
-              //   child: Text("Submit"),
-              // ),
             ],
           ),
         ),
