@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'AppSearchBar.dart';
+import 'models/Question.dart';
+import 'services/http_service.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,8 +31,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final HttpService _httpService = HttpService();
+  List<Question> questions = [];
+
   @override
   Widget build(BuildContext context) {
+    print(questions);
     /* return FutureBuilder(
       future: authStateFalse.getUserdata(userId: getModel?.userId),
       builder: (context, snapshot) {
@@ -365,5 +371,11 @@ class _MyHomePageState extends State<MyHomePage> {
         }
       },
     ); */
+  }
+
+  void getQuestions() async {
+    // try{
+    questions = await _httpService.getQuestions();
+    //List<TableRow> tableRows = [];
   }
 }
