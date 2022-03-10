@@ -35,8 +35,7 @@ class Comment extends StatelessWidget {
               children: [
                 Align(child: Text(this.text, style: TextStyle(fontSize: 17),), alignment: Alignment.topLeft,),
                 Align(child: Text(commiter.name,  style: TextStyle(color: Colors.black45)), alignment: Alignment.bottomRight,),
-            //Text(commiter.name, textAlign: TextAlign.right, style: TextStyle(color: Colors.black45)),
-              Align(child: Text(date,  style: TextStyle(color: Colors.black45)), alignment: Alignment.bottomRight,)
+            Align(child: Text(date,  style: TextStyle(color: Colors.black45)), alignment: Alignment.bottomRight,)
             
               ],
             ))),

@@ -21,6 +21,7 @@ class TestData {
   static var comments = [
     Post(
         TestData.personnes[1],
+        true,
         ContentType.TEXT,
         '',
         "09 Jun",
@@ -29,6 +30,7 @@ class TestData {
         23, []),
     Post(
         TestData.personnes[1],
+        false,
         ContentType.TEXT,
         '',
         "09 Jun",
@@ -37,6 +39,7 @@ class TestData {
         0, []),
     Post(
         TestData.personnes[2],
+        false,
         ContentType.TEXT,
         '',
         "09 Jun",
@@ -48,6 +51,7 @@ class TestData {
   static var comments1 = [
     Post(
         TestData.personnes[2],
+        false,
         ContentType.TEXT,
         '',
         "09 Jun",

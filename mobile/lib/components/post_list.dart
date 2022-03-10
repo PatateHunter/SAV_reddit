@@ -27,9 +27,9 @@ class _PostListState extends State<PostList> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Post(TestData.personnes[0],ContentType.VIDEO, 'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4', "1 Jun", "Coucou je m'appelle Alexandre Paprocki, je suis en 4AL à l'ESGI", "Voici ma description", 0,TestData.comments1),
-              Post(TestData.personnes[1],ContentType.TEXT, '', "09 Jun", "There are two other properties related to size: minRadius and maxRadius. They are used to set the minimum and maximum radius respectively. I", "Description", 45, TestData.comments),
-              Post(TestData.personnes[2],ContentType.IMAGE, 'https://static.fnac-static.com/multimedia/Images/FD/Comete/114332/CCP_IMG_ORIGINAL/1481839.jpg', "10 Jun",'Hello! For my AP subject what is the fastest growing economy?', "La description", 4, TestData.comments)
+              Post(TestData.personnes[0], false, ContentType.VIDEO, 'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4', "1 Jun", "Coucou je m'appelle Alexandre Paprocki, je suis en 4AL à l'ESGI", "Voici ma description", 0,TestData.comments1),
+              Post(TestData.personnes[1], false, ContentType.TEXT, '', "09 Jun", "There are two other properties related to size: minRadius and maxRadius. They are used to set the minimum and maximum radius respectively. I", "Description", 45, TestData.comments),
+              Post(TestData.personnes[2],true, ContentType.IMAGE, 'https://static.fnac-static.com/multimedia/Images/FD/Comete/114332/CCP_IMG_ORIGINAL/1481839.jpg', "10 Jun",'Hello! For my AP subject what is the fastest growing economy?', "La description", 4, TestData.comments)
             ],
           ),
         ),

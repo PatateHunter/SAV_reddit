@@ -13,6 +13,7 @@ import 'details_post/comment.dart';
 
 class Post extends StatefulWidget {
   final Person person;
+  final bool certifiate;
   final ContentType contentType;
   final String mediaPath;
   final String date;
@@ -22,12 +23,13 @@ class Post extends StatefulWidget {
   late Post topComment;
   List<Post> comments;
 
-  Post(this.person, this.contentType, this.mediaPath, this.date, this.text,
+  Post(this.person, this.certifiate, this.contentType, this.mediaPath, this.date, this.text,
       this.description, this.votes, this.comments);
 
   @override
   _PostState createState() => _PostState(
       this.person,
+      this.certifiate,
       this.contentType,
       this.mediaPath,
       this.date,
@@ -39,6 +41,7 @@ class Post extends StatefulWidget {
 
 class _PostState extends State<Post> {
   final Person person;
+  final bool certifiate;
   final ContentType contentType;
   final String mediaPath;
   final String date;
@@ -47,14 +50,25 @@ class _PostState extends State<Post> {
   late List comments;
   late Post topComment;
   int votes = 0;
-  _PostState(this.person, this.contentType, this.mediaPath, this.date,
+  late String responseContent;
+  _PostState(this.person, this.certifiate, this.contentType, this.mediaPath, this.date,
       this.text, this.description, this.votes, this.comments);
 
+  //get commentController => null;
+ final commentController = TextEditingController();
   @override
   void initState() {
     // TODO: implement initState
     //comments = TestData.comments;
+    responseContent = "";
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    commentController.dispose();
+    super.dispose();
   }
 
   @override
@@ -178,9 +192,10 @@ class _PostState extends State<Post> {
                       children: [
                         VotesCounter(votes),
                         Expanded(child: TextViewer(this.text)),
-                      ],
+                        this.certifiate ? Icon(Icons.check_circle, color: Colors.green,) : Icon(null),
+                        
+                        ],
                     )),
-                SizedBox(height: 8.0),
                 Padding(
                   padding: const EdgeInsets.only(left: 12.0, right: 8),
                   child: Align(
@@ -210,23 +225,25 @@ class _PostState extends State<Post> {
                       ),
                 SizedBox(height: 8.0),
                 Padding(
-                  padding: const EdgeInsets.only(bottom:8.0, top:5, right: 15, left: 15),
-                  child: GestureDetector(onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CommentList(this.widget),
-                          /* settings:
+                  padding: const EdgeInsets.only(
+                      bottom: 8.0, top: 5, right: 15, left: 15),
+                  child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CommentList(this.widget),
+                            /* settings:
                                             RouteSettings(arguments: getModel.key), */
-                        ),
-                      );
-                    },child: TopComment(this.widget)),
+                          ),
+                        );
+                      },
+                      child: TopComment(this.widget)),
                 ),
-                
+
                 Stack(
                   alignment: Alignment.center,
                   children: <Widget>[
-                    
                     Row(
                       children: <Widget>[
                         SizedBox(width: 12.0), // For padding
@@ -274,20 +291,29 @@ class _PostState extends State<Post> {
                       padding: EdgeInsets.all(10),
                       child: CircleAvatar(
                         backgroundImage: NetworkImage(
+                            //TODO: replace with currentUser avatar
                             "https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png"),
                       ),
                     ),
-                    //Text("Circle image"),
                     Expanded(
                       child: TextField(
-
-                          //controller: commentController,
+                          controller: commentController,
                           decoration: InputDecoration(
                             hintText: 'Add a reponse...',
                             border: InputBorder.none,
                           ),
+                         onChanged: (str) {setState(() {
+                              responseContent = str;
+                            });},
                           onSubmitted: (str) {
-                            print("new");
+                            
+                            final snackBar = SnackBar(
+                              content: Text('str'),
+                            );
+
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
+
                             /* commentState.addComentToPost(
                                               getModel.key.toString(),
                                               str,
@@ -316,19 +342,18 @@ class _PostState extends State<Post> {
 
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(snackBar);
-
-                                          commentController.clear(); */
+*/
                           }),
                     ),
                     SizedBox(width: 10.0),
                     Padding(
                       padding: const EdgeInsets.only(top: 4.0),
                       child: GestureDetector(
-                        onTap: sendResponse,
+                        onTap: responseContent.length> 0 ? sendResponse : null,
                         child: Icon(
                           Icons.send_rounded,
                           size: 25.0,
-                          color: Colors.black26,
+                          color: responseContent.length> 0 ? Colors.blue : Colors.grey.shade200,
                         ),
                       ),
                     ),
@@ -344,11 +369,13 @@ class _PostState extends State<Post> {
   }
 
   void sendResponse() {
-    setState(() {
-      this.comments.add(
-            Comment(TestData.personnes[2], "Coucouu", "09 Jun"),
-          );
-      print(this.comments);
-    });
+    final snackBar = SnackBar(
+      content: Text('Response sent'),
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    print(commentController.text);
+    commentController.clear();
+    //TODO insert a new comment
   }
 }

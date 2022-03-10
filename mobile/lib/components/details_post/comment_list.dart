@@ -23,11 +23,7 @@ class CommentList extends StatelessWidget {
             children:  [
               Question(this.post),
               SizedBox(height: 8.0),
-              for(var comment in post.comments) comment,
-              /* Post(TestData.personnes[1],ContentType.TEXT, '', "09 Jun", "There are two other properties related to size: minRadius and maxRadius. They are used to set the minimum and maximum radius respectively. I", "Description", 23),
-              Post(TestData.personnes[1],ContentType.TEXT, '', "09 Jun", "There are two other properties related to size: minRadius and maxRadius. They are used to set the minimum and maximum radius respectively. I", "Description", 0),
-              Post(TestData.personnes[2],ContentType.TEXT, '', "09 Jun", "There are two other properties related to size: minRadius and maxRadius. They are used to set the minimum and maximum radius respectively. I", "Description", 0),
-              */]  
+              for(var comment in post.comments) comment,]  
           ),
         ),
       ),
