@@ -3,9 +3,12 @@ import 'package:hackathon/components/post_list.dart';
 
 import 'CreatePost.dart';
 import 'Profile.dart';
+import 'models/Person.dart';
 
 class Search extends StatefulWidget {
-  const Search({Key? key}) : super(key: key);
+  final Person user;
+
+  const Search({Key? key, required this.user}) : super(key: key);
 
   @override
   State<Search> createState() => _SearchState();
@@ -52,7 +55,7 @@ class _SearchState extends State<Search> {
                   onTap: (() {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const PostList()),
+                      MaterialPageRoute(builder: (context) => PostList()),
                     );
                   }),
                   child: Icon(
@@ -89,7 +92,7 @@ class _SearchState extends State<Search> {
               ElevatedButton(
                 onPressed: (() => Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const CreatePost()),
+                      MaterialPageRoute(builder: (context) => CreatePost(user: widget.user,)),
                     )),
                 child: Text("Poser une question?"),
               ),

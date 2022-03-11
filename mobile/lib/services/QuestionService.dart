@@ -10,7 +10,7 @@ class QuestionService {
   Future<List<Question>> getAllComments() async{
     try{
       final response = await http.get(
-        Uri.parse(_baseUrl + "getAllComments"),
+        Uri.parse(_baseUrl + "/api/v1/comment/"),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },

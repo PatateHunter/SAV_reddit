@@ -30,10 +30,10 @@ class UploadService{
         'ranking': 0,
         'file': selectedFile != null ? await MultipartFile.fromFile(selectedFile.path, filename: selectedFile.path.split('/').last) : null
       });
-    //  var response = await dio.post(_baseUrl + "/api/v1/auth/post/comment", data: formData);
-    //   if (response.statusCode != 200) {
-    //     throw Exception("failed to upload");
-    //   }
+     var response = await dio.post(_baseUrl + "/api/v1/auth/comment", data: formData);
+      if (response.statusCode != 200) {
+        throw Exception("failed to upload");
+      }
     }
     catch(err){
       throw Exception(err);

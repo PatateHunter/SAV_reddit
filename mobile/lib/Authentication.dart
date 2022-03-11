@@ -84,7 +84,7 @@ class _AuthenticationState extends State<Authentication> {
             Utils.displayAlertDialog(context, "Success", "Authentication");
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const Search()),
+              MaterialPageRoute(builder: (context) => Search(user: snapshot.data as Person,)),
             );
             return Text(snapshot.data!.name);
           default:
@@ -98,11 +98,11 @@ class _AuthenticationState extends State<Authentication> {
     //verify if form is valid
     if (_formKey.currentState!.validate()) {
       try{
-        // Person user = await _authenticationService.login(
-        //     _loginController.text.trim(), _passwordController.text.trim());
+         Person user = await _authenticationService.login(
+             _loginController.text.trim(), _passwordController.text.trim());
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const Search()),
+          MaterialPageRoute(builder: (context) => Search(user: user,)),
         );
       }catch(err){
         print("Error: $err");

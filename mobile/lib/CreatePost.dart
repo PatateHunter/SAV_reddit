@@ -14,7 +14,8 @@ import 'services/UploadMedia.dart';
 //import 'services/CreatePostService.dart';
 
 class CreatePost extends StatefulWidget {
-  const CreatePost({Key? key}) : super(key: key);
+  final Person user;
+  const CreatePost({Key? key, required this.user}) : super(key: key);
 
   @override
   _CreatePostState createState() => _CreatePostState();
@@ -122,10 +123,6 @@ class _CreatePostState extends State<CreatePost> {
               return buildFormLogin();
             }
             Utils.displayAlertDialog(context, "Success", "CreatePost");
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const Search()),
-            );
             return Text(snapshot.data!.name);
           default:
             return Text("CreatePost");
@@ -141,7 +138,7 @@ class _CreatePostState extends State<CreatePost> {
         if (pickerResult != null) {
            file = File(pickerResult!.files!.single!.path!);
         }
-        await _uploadService.uploadFile(selectedFile: file, idUser: "1234", title: _titleController.text.trim(), text: _commentController.text.trim());
+        await _uploadService.uploadFile(selectedFile: file, idUser: widget.user.id, title: _titleController.text.trim(), text: _commentController.text.trim());
         Utils.displayAlertDialogWithPopUp(context, "Success", "Success creating the file");
       }catch(err){
         Utils.displayAlertDialog(context, "Error Message", err.toString());

@@ -11,7 +11,7 @@ class AuthenticationService {
   Future<Person> login(String username, String password) async {
     try{
       final response = await http.post(
-        Uri.parse(_baseUrl + "/api/v1/auth/post/login"),
+        Uri.parse(_baseUrl + "/api/v1/auth/login"),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
