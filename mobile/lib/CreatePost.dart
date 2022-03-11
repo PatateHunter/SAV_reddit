@@ -86,7 +86,7 @@ class _CreatePostState extends State<CreatePost> {
                 controller: _commentController,
                 input: "Commentaire",
                 isPassword: true,
-                maxLines: 6
+                maxLines: 5
               ),
             ),
             SizedBox(height: 10), // to add separation between two widgets
