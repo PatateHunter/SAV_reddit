@@ -34,15 +34,6 @@ class _PostListState extends State<PostList> {
           ),
         ),
       ),
-      /* floatingActionButton: Padding(
-        padding: const EdgeInsets.all(18.0),
-        child: FloatingActionButton(
-              onPressed: newPost,
-              tooltip: 'Write a new post',
-              child: Icon(Icons
-                  .add)),
-      )  */// This trailing comma makes auto-formatting nicer for build methods.
-        
     );
   }
 }
