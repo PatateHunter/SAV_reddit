@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackathon/components/post_list.dart';
 
+import 'CreatePost.dart';
 import 'Profile.dart';
 
 class Search extends StatefulWidget {
@@ -86,7 +87,10 @@ class _SearchState extends State<Search> {
               Text('ou'),
               SizedBox(height: 10),
               ElevatedButton(
-                onPressed: (() => print("clicked")),
+                onPressed: (() => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const CreatePost()),
+                    )),
                 child: Text("Poser une question?"),
               ),
             ],
