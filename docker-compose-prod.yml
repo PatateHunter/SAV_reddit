@@ -1,0 +1,27 @@
+version: '3'
+services: 
+  api: 
+    build: 
+      context: ./backend
+    container_name: api
+    image: 257654384003.dkr.ecr.eu-west-1.amazonaws.com/app-api
+    ports: 
+      - "3000:3000"
+  ui: 
+    build: 
+      context: ./frontend
+    container_name: ui
+    image: 257654384003.dkr.ecr.eu-west-1.amazonaws.com/app-ui
+    ports: 
+      - "4200:4200"
+  nginx: 
+    build:
+      context: ./nginx
+    container_name: nginx
+    depends_on: 
+      - ui
+      - api
+    image: 257654384003.dkr.ecr.eu-west-1.amazonaws.com/app-nginx
+    ports: 
+      - "80:80"
+    
