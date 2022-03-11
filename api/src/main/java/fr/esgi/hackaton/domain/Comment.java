@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -20,7 +20,7 @@ public class Comment {
     private String title;
     @OneToOne
     private User user;
-    private LocalDate dateHourAdd;
+    private LocalDateTime dateHourAdd;
     private String content;
     private String fileLink;
     private Integer ranking;

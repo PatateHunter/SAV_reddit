@@ -9,6 +9,7 @@ import fr.esgi.hackaton.repository.CommentRepository;
 import fr.esgi.hackaton.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.*;
@@ -27,7 +28,9 @@ public final class CommentServiceImpl implements CommentService {
 
     @Override
     public List<Comment> findAllComments() {
-        return commentRepository.findAll();
+        List<Comment> comments = commentRepository.findAll();
+
+        return comments;
     }
 
     @Override
@@ -41,31 +44,34 @@ public final class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public Comment registerComment(Comment comment) {
-        return commentRepository.save(comment);
+    public Comment registerComment(Comment comment, MultipartFile file) {
+        Comment newComment = commentRepository.save(comment);
+        
+        return uploadUserFile(newComment.getId(), file);
     }
-   // @Override
-    public void uploadUserFile(Long commentId, UploadCommentFileDto uploadCommentFileDto) {
+   
+    private Comment uploadUserFile(Long commentId, MultipartFile file) {
         //1. Chek if image is not empty
-        if(uploadCommentFileDto.getFile().isEmpty()){
-            throw new IllegalStateException(String.format("Cannot upload empty file [%d] ", uploadCommentFileDto.getFile().getSize()));
+        if(file.isEmpty()){
+            throw new IllegalStateException(String.format("Cannot upload empty file [%d] ", file.getSize()));
         }
         //2. If file is an image
-        if(!IMAGES_EXE.contains(uploadCommentFileDto.getFile().getContentType())){
+        if(!IMAGES_EXE.contains(file.getContentType())){
             throw new IllegalStateException(String.format("File must be an image"));
         }
         //3. The user exists in our BDD
         Comment comment = findCommentyById(commentId);
         //4. Grap some metadata from file if any
         Map<String,String> metadata= new HashMap<>();
-        metadata.put("Content-Type", uploadCommentFileDto.getFile().getContentType());
-        metadata.put("Content-Length",String.valueOf(uploadCommentFileDto.getFile().getSize()));
+        metadata.put("Content-Type", file.getContentType());
+        metadata.put("Content-Length",String.valueOf(file.getSize()));
         //5. Store the image in s3 and Update BDD with s3 image link
         String path = String.format("%s/%s", BucketName.COMMENT_FILE.getBucketName(),comment.getId());
-        String fileName = String.format("%s-%s", uploadCommentFileDto.getFile().getOriginalFilename(), UUID.randomUUID());
+        String fileName = String.format("%s-%s", file.getOriginalFilename(), UUID.randomUUID());
         try{
-            fileStore.save(path,fileName, Optional.of(metadata), uploadCommentFileDto.getFile().getInputStream());
+            fileStore.save(path,fileName, Optional.of(metadata), file.getInputStream());
             comment.setFileLink(fileName);
+            return  commentRepository.save(comment);
         }catch (IOException e){
             throw new IllegalStateException(e);
         }
