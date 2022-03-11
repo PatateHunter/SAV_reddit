@@ -7,6 +7,7 @@ import '../../components/post_content/video_viewer.dart';
 import '../post.dart';
 import '../votes_counter.dart';
 import 'comment_list.dart';
+import 'top_comment.dart';
 
 class Question extends StatefulWidget {
   final Post post;
@@ -129,16 +130,15 @@ class _QuestionState extends State<Question> {
                                           color: Colors.black, fontSize: 15),
                                     ),
                                   ],
+                                ),SizedBox(height: 8.0),
+                            this.widget is Question ? Row(
+                              children: <Widget>[
+                                Text(
+                                  this.post.description,
+                                  style: TextStyle(color: Colors.black87, fontSize: 20),
                                 ),
-                                Row(
-                                  children: <Widget>[
-                                    Text(
-                                      this.post.description,
-                                      //snapshot.data()['study'] ?? 'unknown study',
-                                      style: TextStyle(color: Colors.black54),
-                                    ),
-                                  ],
-                                ),
+                              ],
+                            ) : SizedBox(height: 0),
                               ],
                             ),
                           ),
@@ -193,6 +193,23 @@ class _QuestionState extends State<Question> {
                             ),
                           ),
                     SizedBox(height: 8.0),
+
+                    Padding(
+                  padding: const EdgeInsets.only(
+                      bottom: 8.0, top: 5, right: 15, left: 15),
+                  child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CommentList(this.post.topComment!),
+                            /* settings:
+                                            RouteSettings(arguments: getModel.key), */
+                          ),
+                        );
+                      },
+                      child: this.post.topComment != null ? TopComment(this.post.topComment!) : SizedBox(height: 0.0),),
+                ),
                     // Different icon buttons and image slider indicator
                     Stack(
                       alignment: Alignment.center,

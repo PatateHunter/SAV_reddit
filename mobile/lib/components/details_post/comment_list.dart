@@ -12,6 +12,8 @@ class CommentList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var responses = this.post.comments;
+    responses.forEach((element) {element.description = "";});
     return Scaffold(
       appBar: AppBar(title: Text("Responses to " + post.person.name),),
       backgroundColor: Colors.grey.shade100,
@@ -23,7 +25,7 @@ class CommentList extends StatelessWidget {
             children:  [
               Question(this.post),
               SizedBox(height: 8.0),
-              for(var comment in post.comments) comment,]  
+              for(var comment in responses) comment,]  
           ),
         ),
       ),
