@@ -19,10 +19,14 @@ class Question extends StatefulWidget {
 class _QuestionState extends State<Question> {
   final Post post;
   _QuestionState(this.post);
+ final commentController = TextEditingController();
+  late String responseContent;
 
   @override
   void initState() {
     // TODO: implement initState
+
+    responseContent = "";
     super.initState();
   }
 
@@ -227,11 +231,14 @@ class _QuestionState extends State<Question> {
                         //Text("Circle image"),
                         Expanded(
                           child: TextField(
-                              //controller: commentController,
+                              controller: commentController,
                               decoration: InputDecoration(
                                 hintText: 'Add a reponse...',
                                 border: InputBorder.none,
                               ),
+                              onChanged: (str) {setState(() {
+                              responseContent = str;
+                            });},
                               onSubmitted: (str) {
                                 /* commentState.addComentToPost(
                                               getModel.key.toString(),
@@ -267,15 +274,16 @@ class _QuestionState extends State<Question> {
                         ),
                         SizedBox(width: 10.0),
                         Padding(
-                          padding: const EdgeInsets.only(top: 4.0),
-                          child: GestureDetector(
-                            child: Icon(
-                              Icons.send_rounded,
-                              size: 25.0,
-                              color: Colors.black26,
-                            ),
-                          ),
+                      padding: const EdgeInsets.only(top: 4.0),
+                      child: GestureDetector(
+                        onTap: responseContent.length> 0 ? sendResponse : null,
+                        child: Icon(
+                          Icons.send_rounded,
+                          size: 25.0,
+                          color: responseContent.length> 0 ? Colors.blue : Colors.grey.shade200,
                         ),
+                      ),
+                    ),
                         SizedBox(width: 12.0),
                       ],
                     ),
@@ -285,5 +293,16 @@ class _QuestionState extends State<Question> {
             ),
           ),
         ));
+  }
+
+  void sendResponse() {
+    final snackBar = SnackBar(
+      content: Text('Response sent'),
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    print(commentController.text);
+    commentController.clear();
+    //TODO insert a new comment
   }
 }
