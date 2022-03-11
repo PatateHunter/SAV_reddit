@@ -59,9 +59,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateRewards(String email, int vote){
+    public void updateRewards(String email, int vote){
         User userFromDb = userRepository.findByEmail(email);
-        userFromDb.setRewards(userFromDb.getRewards()+vote);
-        return userFromDb;
+        //todo  #List of rules to reward someone
+        if(userFromDb.getRewards() > 0) {
+            userFromDb.setRewards(userFromDb.getRewards() + vote);
+            userRepository.save(userFromDb);
+        }
     }
 }

@@ -17,7 +17,7 @@ import javax.validation.Valid;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/users")
-public class UserController {
+public class     UserController {
 
     private final UserMapper userMapper;
     private final SimpMessagingTemplate messagingTemplate;

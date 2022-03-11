@@ -3,6 +3,7 @@ package fr.esgi.hackaton.controller;
 import fr.esgi.hackaton.domain.Comment;
 import fr.esgi.hackaton.dto.CommentRequest;
 import fr.esgi.hackaton.dto.CommentResponse;
+import fr.esgi.hackaton.dto.VoteRequest;
 import fr.esgi.hackaton.mapper.CommentMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -33,5 +34,10 @@ private final CommentMapper commentMapper;
     @GetMapping("/{id}")
     public ResponseEntity<CommentResponse> getById(@RequestParam Long commentId){
         return  ResponseEntity.ok(commentMapper.findCommentById(commentId));
+    }
+
+    @PostMapping("/vote")
+    public ResponseEntity<CommentResponse> updateVote(@RequestBody VoteRequest voteRequest){
+        return ResponseEntity.ok(commentMapper.updateVote(voteRequest.getCommentId(), voteRequest.getEmail(),voteRequest.getVote()));
     }
 }
