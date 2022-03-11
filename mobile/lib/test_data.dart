@@ -27,7 +27,7 @@ class TestData {
         "09 Jun",
         "There are two other properties related to size: minRadius and maxRadius. They are used to set the minimum and maximum radius respectively. I",
         "Description",
-        23, [], null),
+        23, []),
     Post(
         TestData.personnes[1],
         false,
@@ -36,7 +36,7 @@ class TestData {
         "09 Jun",
         "There are two other properties related to size: minRadius and maxRadius. They are used to set the minimum and maximum radius respectively. I",
         "Description",
-        0, [], null),
+        0, []),
     Post(
         TestData.personnes[2],
         false,
@@ -45,7 +45,7 @@ class TestData {
         "09 Jun",
         "There are two other properties related to size: minRadius and maxRadius. They are used to set the minimum and maximum radius respectively. I",
         "Description",
-        0, [], null),
+        0, []),
   ];
 
   static var comments1 = [
@@ -57,6 +57,6 @@ class TestData {
         "09 Jun",
         " They are used to set the minimum and maximum radius respectively",
         "Description",
-        23, [], null),
+        23, []),
   ];
 }

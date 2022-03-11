@@ -52,6 +52,7 @@ class _VotesCounterState extends State<VotesCounter> {
 
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
     _initialCounter = _counter;
   }

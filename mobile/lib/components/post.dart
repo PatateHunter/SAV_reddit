@@ -6,6 +6,7 @@ import '/components/post_content/image_viewer.dart';
 import '/components/post_content/text_viewer.dart';
 import '/components/post_content/video_viewer.dart';
 import '/components/votes_counter.dart';
+import '/test_data.dart';
 
 import '../person.dart';
 import 'details_post/comment.dart';
@@ -17,13 +18,13 @@ class Post extends StatefulWidget {
   final String mediaPath;
   final String date;
   final String text;
-  String description;
+  final String description;
   final int votes;
-  final Post? topComment;
+  late Post topComment;
   List<Post> comments;
 
   Post(this.person, this.certifiate, this.contentType, this.mediaPath, this.date, this.text,
-      this.description, this.votes, this.comments, this.topComment);
+      this.description, this.votes, this.comments);
 
   @override
   _PostState createState() => _PostState(
@@ -35,8 +36,7 @@ class Post extends StatefulWidget {
       this.text,
       this.description,
       this.votes,
-      this.comments,
-      this.topComment,);
+      this.comments);
 }
 
 class _PostState extends State<Post> {
@@ -48,12 +48,11 @@ class _PostState extends State<Post> {
   final String text;
   final String description;
   late List comments;
-  final Post? topComment;
-  
+  late Post topComment;
   int votes = 0;
   late String responseContent;
   _PostState(this.person, this.certifiate, this.contentType, this.mediaPath, this.date,
-      this.text, this.description, this.votes, this.comments, this.topComment);
+      this.text, this.description, this.votes, this.comments);
 
   //get commentController => null;
  final commentController = TextEditingController();
@@ -159,15 +158,14 @@ class _PostState extends State<Post> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 8.0),
                             Row(
                               children: <Widget>[
                                 Text(
                                   this.description,
-                                  style: TextStyle(color: Colors.black87, fontSize: 20),
+                                  style: TextStyle(color: Colors.black54),
                                 ),
                               ],
-                            ),// : SizedBox(height: 0),
+                            ),
                           ],
                         ),
                       ),
@@ -234,13 +232,13 @@ class _PostState extends State<Post> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => CommentList(this.widget.topComment!),
+                            builder: (context) => CommentList(this.widget),
                             /* settings:
                                             RouteSettings(arguments: getModel.key), */
                           ),
                         );
                       },
-                      child: this.widget.topComment != null ? TopComment(this.widget.topComment!) : SizedBox(height: 0.0),),
+                      child: TopComment(this.widget)),
                 ),
 
                 Stack(
