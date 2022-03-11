@@ -15,18 +15,27 @@ class _SearchState extends State<Search> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: GestureDetector(
-          onTap: (() => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Profile()),
-              )),
-          child: Icon(
-            Icons.search,
-            color: Colors.white,
-            size: 28,
+        title: ListTile(
+          trailing: GestureDetector(
+            onTap: (() => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Profile()),
+                )),
+            child: Icon(
+              Icons.person,
+              color: Colors.white,
+              size: 28,
+            ),
+          ),
+          title: Center(
+            child: const Text(
+              'SAV REDDIT',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
           ),
         ),
-        title: const Text('SAV REDDIT'),
       ),
       body: Center(
         child: Container(
