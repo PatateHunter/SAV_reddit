@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hackathon/components/post_content/image_viewer.dart';
-import 'package:hackathon/components/post_list.dart';
-import 'package:hackathon/components/post_content/text_viewer.dart';
-import 'package:hackathon/view_image_posting_normal.dart';
+import 'components/post_list.dart';
+
+import 'Authentication.dart';
+import 'components/AppSearchBar.dart';
+import 'models/Question.dart';
+import 'services/QuestionService.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,12 +14,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'SAV Reddit',
       theme: ThemeData(
-      
+        //backgroundColor: Colors.white,
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'SAV Reddit Home Page'),
     );
   }
 }
@@ -32,16 +34,30 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final QuestionService _questionService = QuestionService();
+  List<Question> questions = [];
+  String valueSearchBar = "";
+  setValueSearchBar(String value) {
+    setState(() {
+      valueSearchBar = value;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    
+    //return PostList();
+    print(valueSearchBar);
+    print(questions);
     /* return FutureBuilder(
       future: authStateFalse.getUserdata(userId: getModel?.userId),
       builder: (context, snapshot) {
         if (snapshot.hasData) { */
-          return PostList();
-        /* } else if ((snapshot.connectionState == ConnectionState.waiting ||
+    return Scaffold(
+        appBar: AppBar(
+          title: Center(child: const Text('SAV REDDIT')),
+        ),
+        body: Authentication());
+    /* } else if ((snapshot.connectionState == ConnectionState.waiting ||
             snapshot.connectionState == ConnectionState.active)) {
           return SizedBox(
               // itutuloy function if loading

@@ -98,7 +98,7 @@
       <recent name="C:\Users\chtitski\Documents\GitHubYo\SAV_reddit\api" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.HackatonApplication (2)">
+  <component name="RunManager" selected="Spring Boot.HackatonApplication (1)">
     <configuration name="HackatonApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="api" />
       <extension name="coverage">
@@ -134,6 +134,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.HackatonApplication (1)" />
+        <item itemvalue="Spring Boot.HackatonApplication" />
         <item itemvalue="Spring Boot.HackatonApplication" />
         <item itemvalue="Spring Boot.HackatonApplication (1)" />
       </list>
