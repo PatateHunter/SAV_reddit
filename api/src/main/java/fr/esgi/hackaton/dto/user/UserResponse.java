@@ -1,10 +1,14 @@
 package fr.esgi.hackaton.dto.user;
 
 import fr.esgi.hackaton.domain.Role;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class UserResponse {
     private Long id;
