@@ -1,23 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="66558617-c592-4122-92d8-6e3ad206881e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/SAV_reddit.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/controller/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/database/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/models/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/router/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/router/process.router.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/services/answer-service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/services/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    <list default="true" id="66558617-c592-4122-92d8-6e3ad206881e" name="Changes" comment="update backend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/HackatonApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/HackatonApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/aspect/ControllerAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/aspect/ControllerAspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/bucket/BucketName.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/bucket/BucketName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/configuration/ApplicationConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/configuration/ApplicationConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/configuration/EmailConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/configuration/EmailConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/configuration/MvcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/configuration/MvcConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/configuration/SwaggerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/configuration/SwaggerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/configuration/WebSecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/configuration/WebSecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/configuration/WebSocketConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/configuration/WebSocketConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/controller/CommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/controller/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/domain/AuthProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/domain/AuthProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/domain/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/domain/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/domain/CommentFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/domain/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/domain/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/dto/CaptchaResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/dto/CaptchaResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/dto/CommentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/dto/CommentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/dto/CommentResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/dto/CommentResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/dto/DownloadCommentFileDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/dto/DownloadCommentFileDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/dto/PasswordResetRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/dto/PasswordResetRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/dto/RegistrationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/dto/RegistrationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/dto/UploadCommentFileDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/dto/UploadCommentFileDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/dto/auth/AuthenticationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/dto/auth/AuthenticationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/dto/auth/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/dto/auth/AuthenticationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/dto/user/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/dto/user/UserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/dto/user/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/dto/user/UserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/exception/ApiExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/exception/ApiExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/exception/ApiRequestException.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/exception/ApiRequestException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/exception/CaptchaException.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/exception/CaptchaException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/exception/EmailException.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/exception/EmailException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/exception/InputFieldException.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/exception/InputFieldException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/exception/PasswordConfirmationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/exception/PasswordConfirmationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/exception/PasswordException.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/exception/PasswordException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/filestore/FileStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/filestore/FileStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/mapper/AuthenticationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/mapper/AuthenticationMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/mapper/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/mapper/CommentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/repository/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/repository/CommentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/security/JwtAuthenticationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/security/JwtAuthenticationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/security/JwtConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/security/JwtConfigurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/security/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/security/JwtFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/security/JwtProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/security/JwtProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/security/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/security/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/security/UserPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/security/UserPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/security/oauth2/CustomOAuth2UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/security/oauth2/CustomOAuth2UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/security/oauth2/FacebookOAuth2UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/security/oauth2/FacebookOAuth2UserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/security/oauth2/GithubOAuth2UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/security/oauth2/GithubOAuth2UserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/security/oauth2/GoogleOAuth2UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/security/oauth2/GoogleOAuth2UserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/security/oauth2/OAuth2SuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/security/oauth2/OAuth2SuccessHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/security/oauth2/OAuth2UserFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/security/oauth2/OAuth2UserFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/security/oauth2/OAuth2UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/security/oauth2/OAuth2UserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/service/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/service/CommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/service/Impl/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/service/Impl/AuthenticationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/service/Impl/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/service/Impl/CommentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/service/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/service/Impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/hackaton/service/email/MailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/fr/esgi/hackaton/service/email/MailSender.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +82,28 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="JPA Inspector" value="true" />
+        <entry key="JPA Palette" value="true" />
+        <entry key="JPA Structure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="JPA Inspector" value="false" />
+        <entry key="JPA Palette" value="false" />
+        <entry key="JPA Structure" value="false" />
+      </map>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -45,22 +116,71 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/api/src/main/resources" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\haithem.limam\Documents\Etude\SAV_reddit\api\src\main\resources" />
+      <recent name="C:\Users\haithem.limam\Documents\Etude\SAV_reddit\api\src\main\java" />
+      <recent name="C:\Users\haithem.limam\Documents\Etude\SAV_reddit" />
+      <recent name="C:\Users\haithem.limam\Documents\Etude\SAV_reddit\api" />
       <recent name="C:\Users\chtitski\Documents\GitHubYo\SAV_reddit\api" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\chtitski\Documents\GitHubYo\SAV_reddit\api" />
     </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.HackatonApplication (1)">
+    <configuration name="HackatonApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fr.esgi.hackaton.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="fr.esgi.hackaton.HackatonApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HackatonApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hackaton.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="hackaton.HackatonApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.HackatonApplication (1)" />
+        <item itemvalue="Spring Boot.HackatonApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -72,7 +192,23 @@
       <updated>1646859413124</updated>
       <workItem from="1646859418048" duration="842000" />
       <workItem from="1646897603054" duration="184000" />
+      <workItem from="1646939391260" duration="1900000" />
     </task>
+    <task id="LOCAL-00001" summary="delete ts">
+      <created>1646939510334</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1646939510334</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update backend">
+      <created>1646940556395</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1646940556395</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,5 +225,20 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="delete ts" />
+    <MESSAGE value="update backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="update backend" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.hibernate.AnnotationException" package="org.hibernate" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
