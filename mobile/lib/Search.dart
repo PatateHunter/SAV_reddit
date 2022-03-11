@@ -46,7 +46,7 @@ class _SearchState extends State<Search> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Container(child: Image.asset('assets/images/logo.png')),
-              SizedBox(height: 10), // to add separation between two widgets
+              SizedBox(height: 10),
               ListTile(
                 trailing: GestureDetector(
                   onTap: (() {

@@ -14,12 +14,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'SAV Reddit',
+      title: 'SAV Brumaire',
       theme: ThemeData(
         //backgroundColor: Colors.white,
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'SAV Reddit Home Page'),
+      home: MyHomePage(title: 'SAV Brumaire Home Page'),
     );
   }
 }

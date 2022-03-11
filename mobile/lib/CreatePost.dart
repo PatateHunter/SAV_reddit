@@ -76,7 +76,7 @@ class _CreatePostState extends State<CreatePost> {
             Container(
               child: CustomTextFormField(
                 controller: _titleController,
-                input: "Titre",
+                input: "Title",
                 isPassword: false,
               ),
             ),
@@ -84,9 +84,9 @@ class _CreatePostState extends State<CreatePost> {
             Container(
               child: CustomTextFormField(
                 controller: _commentController,
-                input: "Commentaire",
+                input: "Comment",
                 isPassword: true,
-                maxLines: 6
+                maxLines: 5
               ),
             ),
             SizedBox(height: 10), // to add separation between two widgets

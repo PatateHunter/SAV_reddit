@@ -25,8 +25,9 @@ class _AuthenticationState extends State<Authentication> {
   @override
   Widget build(BuildContext context) {
     return Center(
-          child: _futurePerson == null ? buildFormLogin() : buildFutureBuilderLogin(),
-        );
+      child:
+          _futurePerson == null ? buildFormLogin() : buildFutureBuilderLogin(),
+    );
   }
 
   Form buildFormLogin() {
@@ -39,6 +40,8 @@ class _AuthenticationState extends State<Authentication> {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
+            Container(child: Image.asset('assets/images/logo.png')),
+            SizedBox(height: 10),
             Container(
               child: CustomTextFormField(
                 controller: _loginController,
@@ -69,15 +72,16 @@ class _AuthenticationState extends State<Authentication> {
     return FutureBuilder<Person>(
       future: _futurePerson,
       builder: (context, snapshot) {
-        switch(snapshot.connectionState){
+        switch (snapshot.connectionState) {
           case ConnectionState.waiting:
             return Center(child: CircularProgressIndicator());
           case ConnectionState.done:
-            if(snapshot.hasError){
-              Utils.displayAlertDialog(context, "Error", "Error during the Authentication");
+            if (snapshot.hasError) {
+              Utils.displayAlertDialog(
+                  context, "Error", "Error during the Authentication");
               return buildFormLogin();
             }
-            if(!snapshot.hasData){
+            if (!snapshot.hasData) {
               Utils.displayAlertDialog(context, "Error", "Person not found");
               return buildFormLogin();
             }
@@ -97,19 +101,18 @@ class _AuthenticationState extends State<Authentication> {
   void onClickSubmitButton() async {
     //verify if form is valid
     if (_formKey.currentState!.validate()) {
-      try{
+      try {
         // Person user = await _authenticationService.login(
         //     _loginController.text.trim(), _passwordController.text.trim());
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const Search()),
         );
-      }catch(err){
+      } catch (err) {
         print("Error: $err");
-        Utils.displayAlertDialog(context, "Error during the Authentication", err.toString());
+        Utils.displayAlertDialog(
+            context, "Error during the Authentication", err.toString());
       }
     }
   }
-
-  
 }
