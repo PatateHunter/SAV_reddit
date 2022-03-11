@@ -68,10 +68,4 @@ class _MyHomePageState extends State<MyHomePage> {
       },
     ); */
   }
-
-  void getQuestions() async {
-    // try{
-    questions = await _questionService.getQuestions();
-    //List<TableRow> tableRows = [];
-  }
 }

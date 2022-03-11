@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import '../person.dart';
 
 class UploadService{
-  final _baseUrl= "http://0.0.0.0:3000/";
+  final _baseUrl= "http://0.0.0.0:3005/";
 
   Future<void> uploadFile({File? selectedFile, required String idUser, required String title, required String text}) async {
     try{
@@ -30,24 +30,10 @@ class UploadService{
         'ranking': 0,
         'file': selectedFile != null ? await MultipartFile.fromFile(selectedFile.path, filename: selectedFile.path.split('/').last) : null
       });
-      print(formData);
-      // var response = await dio.post(_baseUrl + "uploadImageSection", data: formData);
-      
-      // var formData = FormData.fromMap({
-      //   'title': title,
-      //   'userId': idUser,
-      //   'dateHourAdd': DateTime.now(),
-      //   'content': text,
-      //   'ranking': 0,
-      //   'file': http.MultipartFile.fromBytes('file', selectedFile,
-      //     //contentType: new MediaType('multipart', 'form-data'), 
-      //     filename: "filename",),
-      // });
-      // print(formData);
-      // var response = await dio.post(_baseUrl + "uploadImageSection", data: formData);
-      // if (response.statusCode != 200) {
-      //   throw Exception("failed to upload");
-      // }
+    //  var response = await dio.post(_baseUrl + "/api/v1/auth/post/comment", data: formData);
+    //   if (response.statusCode != 200) {
+    //     throw Exception("failed to upload");
+    //   }
     }
     catch(err){
       throw Exception(err);

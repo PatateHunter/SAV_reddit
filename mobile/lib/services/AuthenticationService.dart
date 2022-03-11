@@ -6,17 +6,17 @@ import '../models/Question.dart';
 
 
 class AuthenticationService {
-  final _baseUrl = "http://0.0.0.0:3000/";
+  final _baseUrl = "http://0.0.0.0:3005/";
 
   Future<Person> login(String username, String password) async {
     try{
       final response = await http.post(
-        Uri.parse(_baseUrl + "login"),
+        Uri.parse(_baseUrl + "/api/v1/auth/post/login"),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
         body: jsonEncode(<String, String>{
-          'username': username,
+          'email': username,
           'password': password,
         }),
       );

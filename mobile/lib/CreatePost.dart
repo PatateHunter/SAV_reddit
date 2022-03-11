@@ -1,13 +1,11 @@
 import 'dart:io';
 import 'dart:typed_data';
-import 'dart:convert';
 
 import 'package:file_picker/file_picker.dart';
 
 import 'package:flutter/material.dart';
 import 'package:hackathon/Search.dart';
 import 'Profile.dart';
-import 'components/post_list.dart';
 
 import 'common/utils.dart';
 import 'components/textformfield.dart';

@@ -5,12 +5,12 @@ import '../models/Question.dart';
 
 
 class QuestionService {
-  final _baseUrl = "http://0.0.0.0:3000/";
+  final _baseUrl = "http://0.0.0.0:3005/";
 
-  Future<List<Question>> getQuestions() async{
+  Future<List<Question>> getAllComments() async{
     try{
       final response = await http.get(
-        Uri.parse(_baseUrl + "getQuestions"),
+        Uri.parse(_baseUrl + "getAllComments"),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -73,7 +73,7 @@ class QuestionService {
   //     throw Exception(err);
   //   } 
   // }
-  // Future<void> createSection(String title, String description) async {
+  // Future<void> createComment(String title, String description) async {
   //   try{
   //     final response = await http.post(
   //       Uri.parse(_baseUrl + "createSection"),
@@ -86,7 +86,6 @@ class QuestionService {
   //       }),
   //     );
   //     var json = jsonDecode(response.body);
-
   //     if (response.statusCode != 200) {
   //       String jsonError = json["error"];
   //       throw Exception(jsonError);
