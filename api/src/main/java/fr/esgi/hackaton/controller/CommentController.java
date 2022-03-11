@@ -1,9 +1,7 @@
 package fr.esgi.hackaton.controller;
 
 import fr.esgi.hackaton.domain.Comment;
-import fr.esgi.hackaton.dto.CommentRequest;
-import fr.esgi.hackaton.dto.CommentResponse;
-import fr.esgi.hackaton.dto.UploadCommentFileDto;
+import fr.esgi.hackaton.dto.*;
 import fr.esgi.hackaton.mapper.CommentMapper;
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.jni.Local;
